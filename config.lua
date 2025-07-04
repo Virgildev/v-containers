@@ -1,40 +1,3 @@
-# 📦 **v-containers** 📦  
-
-> **Highly configurable, placeable, pickable, lockable, trappable storage containers for FiveM**  
-
----
-
-## 🌇 Overview 🌇
-
-**v-containers** is a container system where players can place down real prop based containers, and place items inside, add locks, add traps, and do many more interactive things within the features of the script.
-
-Supports: **QB-Core**, **QBOX**, **ESX**
-
----
-
-## 🎥 Preview 🎥
-
- - Preview can be found: [here]()
-
----
-
-## 🎛️ Features 🎛️
-
-- 📦 Placeable storage containers with configurable models, slots, and weight limits  
-- 🔒 Lockable with optional keypads (basic, advanced, police)  
-- 💣 Trap-able containers with fail chance & explosion settings  
-- 🛠️ Repairable to extend container lifetime using repair kits  
-- 🎮 Framework-detecting minigames (supports QB Lockpick Circle, OX Skillcheck, ESX Lockpick, or your custom)  
-- 💥 Explosive traps with custom damage, shake, and visibility settings  
-- 🔐 Secure containers for police and gang uses  
-- 📜 Clean, extensible configuration for easy custom container creation  
-- 📣 Configurable notification system  
-
----
-
-## 💳 Config 💳
-
-```
 Config = {}
 
 Config.Framework = 'auto' -- qb, qbox or esx (recommended: auto)
@@ -254,15 +217,3 @@ Config.Notifications = {
     container_already_trapped = 'This container already has a trap installed.',
     not_trapable = 'This container cannot have a trap installed.'
 }
-```
-
-## ⚙️ Install ⚙️
-
- 1. Download Latest Release
- 2. Drop into your resources
- 3. Ensure 'v-containers'
- 4. use it
-
-## 🛠️ Support 🛠️
-
-Feel free to join the new discord for support I created a whole 7 minutes ago [here]()

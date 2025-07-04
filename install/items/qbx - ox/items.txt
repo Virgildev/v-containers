@@ -1,0 +1,141 @@
+['small_crate'] = {
+    label = 'Small Storage Crate',
+    weight = 2000,
+    stack = false,
+    close = false,
+    consume = 0,
+    client = {
+        event = 'v-containers:client:useContainer',
+    }
+},
+['medium_crate'] = {
+    label = 'Medium Storage Crate',
+    weight = 3000,
+    stack = false,
+    close = false,
+    consume = 0,
+    client = {
+        event = 'v-containers:client:useContainer',
+    }
+},
+['large_crate'] = {
+    label = 'Large Storage Crate',
+    weight = 5000,
+    stack = false,
+    close = false,
+    consume = 0,
+    client = {
+        event = 'v-containers:client:useContainer',
+    }
+},
+['weapon_crate'] = {
+    label = 'Weapon Storage Crate',
+    weight = 4000,
+    stack = false,
+    close = false,
+    consume = 0,
+    client = {
+        event = 'v-containers:client:useContainer',
+    }
+},
+['medical_crate'] = {
+    label = 'Medical Supply Crate',
+    weight = 2500,
+    stack = false,
+    close = false,
+    consume = 0,
+    client = {
+        event = 'v-containers:client:useContainer',
+    }
+},
+['secure_safe'] = {
+    label = 'Secure Safe',
+    weight = 10000,
+    stack = false,
+    close = false,
+    consume = 0,
+    client = {
+        event = 'v-containers:client:useContainer',
+    }
+},
+['drug_stash'] = {
+    label = 'Drug Stash Box',
+    weight = 1500,
+    stack = false,
+    close = false,
+    consume = 0,
+    client = {
+        event = 'v-containers:client:useContainer',
+    }
+},
+['money_case'] = {
+    label = 'Money Case',
+    weight = 3500,
+    stack = false,
+    close = false,
+    consume = 0,
+    client = {
+        event = 'v-containers:client:useContainer',
+    }
+},
+['evidence_box'] = {
+    label = 'Evidence Storage Box',
+    weight = 4500,
+    stack = false,
+    close = false,
+    consume = 0,
+    client = {
+        event = 'v-containers:client:useContainer',
+    }
+},
+['trap_crate'] = {
+    label = 'Suspicious Crate',
+    weight = 1000,
+    stack = false,
+    close = false,
+    consume = 0,
+    client = {
+        event = 'v-containers:client:useContainer',
+    }
+},
+['repair_kit'] = {
+    label = 'Repair Kit',
+    weight = 500,
+    stack = true,
+    close = true,
+    consume = 1
+},
+['advanced_repair_kit'] = {
+    label = 'Advanced Repair Kit',
+    weight = 750,
+    stack = true,
+    close = true,
+    consume = 1
+},
+['keypad'] = {
+    label = 'Basic Keypad',
+    weight = 200,
+    stack = true,
+    close = true,
+    consume = 0
+},
+['advanced_keypad'] = {
+    label = 'Advanced Keypad',
+    weight = 350,
+    stack = true,
+    close = true,
+    consume = 0
+},
+['police_keypad'] = {
+    label = 'Police Keypad',
+    weight = 500,
+    stack = false,
+    close = true,
+    consume = 0
+},
+['explosive_trap'] = {
+    label = 'Explosive Trap',
+    weight = 1500,
+    stack = false,
+    close = false
+},

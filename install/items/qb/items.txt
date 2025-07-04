@@ -1,0 +1,207 @@
+["small_crate"] = {
+    ["name"] = "small_crate",
+    ["label"] = "Small Storage Crate",
+    ["weight"] = 2000,
+    ["type"] = "item",
+    ["image"] = "small_crate.png",
+    ["unique"] = true,
+    ["useable"] = true,
+    ["shouldClose"] = true,
+    ["combinable"] = nil,
+    ["description"] = "A small portable storage crate for holding items."
+},
+
+["medium_crate"] = {
+    ["name"] = "medium_crate",
+    ["label"] = "Medium Storage Crate",
+    ["weight"] = 3000,
+    ["type"] = "item",
+    ["image"] = "medium_crate.png",
+    ["unique"] = true,
+    ["useable"] = true,
+    ["shouldClose"] = true,
+    ["combinable"] = nil,
+    ["description"] = "A medium-sized storage crate for carrying supplies."
+},
+
+["large_crate"] = {
+    ["name"] = "large_crate",
+    ["label"] = "Large Storage Crate",
+    ["weight"] = 5000,
+    ["type"] = "item",
+    ["image"] = "large_crate.png",
+    ["unique"] = true,
+    ["useable"] = true,
+    ["shouldClose"] = true,
+    ["combinable"] = nil,
+    ["description"] = "A large crate designed for transporting bulk items."
+},
+
+["weapon_crate"] = {
+    ["name"] = "weapon_crate",
+    ["label"] = "Weapon Storage Crate",
+    ["weight"] = 4000,
+    ["type"] = "item",
+    ["image"] = "weapon_crate.png",
+    ["unique"] = true,
+    ["useable"] = true,
+    ["shouldClose"] = true,
+    ["combinable"] = nil,
+    ["description"] = "A crate used for safely storing weapons."
+},
+
+["medical_crate"] = {
+    ["name"] = "medical_crate",
+    ["label"] = "Medical Supply Crate",
+    ["weight"] = 2500,
+    ["type"] = "item",
+    ["image"] = "medical_crate.png",
+    ["unique"] = true,
+    ["useable"] = true,
+    ["shouldClose"] = true,
+    ["combinable"] = nil,
+    ["description"] = "A crate filled with medical supplies."
+},
+
+["secure_safe"] = {
+    ["name"] = "secure_safe",
+    ["label"] = "Secure Safe",
+    ["weight"] = 10000,
+    ["type"] = "item",
+    ["image"] = "secure_safe.png",
+    ["unique"] = true,
+    ["useable"] = true,
+    ["shouldClose"] = true,
+    ["combinable"] = nil,
+    ["description"] = "A heavy-duty safe for protecting valuables."
+},
+
+["drug_stash"] = {
+    ["name"] = "drug_stash",
+    ["label"] = "Drug Stash Box",
+    ["weight"] = 1500,
+    ["type"] = "item",
+    ["image"] = "drug_stash.png",
+    ["unique"] = true,
+    ["useable"] = true,
+    ["shouldClose"] = true,
+    ["combinable"] = nil,
+    ["description"] = "A small, discreet box for concealing drugs."
+},
+
+["money_case"] = {
+    ["name"] = "money_case",
+    ["label"] = "Money Case",
+    ["weight"] = 3500,
+    ["type"] = "item",
+    ["image"] = "money_case.png",
+    ["unique"] = true,
+    ["useable"] = true,
+    ["shouldClose"] = true,
+    ["combinable"] = nil,
+    ["description"] = "A secure case designed for transporting money."
+},
+
+["evidence_box"] = {
+    ["name"] = "evidence_box",
+    ["label"] = "Evidence Storage Box",
+    ["weight"] = 4500,
+    ["type"] = "item",
+    ["image"] = "evidence_box.png",
+    ["unique"] = true,
+    ["useable"] = true,
+    ["shouldClose"] = true,
+    ["combinable"] = nil,
+    ["description"] = "A container for holding collected evidence."
+},
+
+["trap_crate"] = {
+    ["name"] = "trap_crate",
+    ["label"] = "Suspicious Crate",
+    ["weight"] = 1000,
+    ["type"] = "item",
+    ["image"] = "trap_crate.png",
+    ["unique"] = true,
+    ["useable"] = true,
+    ["shouldClose"] = true,
+    ["combinable"] = nil,
+    ["description"] = "A sketchy crate — could be trapped."
+},
+
+["repair_kit"] = {
+    ["name"] = "repair_kit",
+    ["label"] = "Repair Kit",
+    ["weight"] = 500,
+    ["type"] = "item",
+    ["image"] = "repair_kit.png",
+    ["unique"] = false,
+    ["useable"] = true,
+    ["shouldClose"] = true,
+    ["combinable"] = nil,
+    ["description"] = "Basic repair kit for vehicle maintenance."
+},
+
+["advanced_repair_kit"] = {
+    ["name"] = "advanced_repair_kit",
+    ["label"] = "Advanced Repair Kit",
+    ["weight"] = 750,
+    ["type"] = "item",
+    ["image"] = "advanced_repair_kit.png",
+    ["unique"] = false,
+    ["useable"] = true,
+    ["shouldClose"] = true,
+    ["combinable"] = nil,
+    ["description"] = "An advanced repair kit for critical fixes."
+},
+
+["keypad"] = {
+    ["name"] = "keypad",
+    ["label"] = "Basic Keypad",
+    ["weight"] = 200,
+    ["type"] = "item",
+    ["image"] = "keypad.png",
+    ["unique"] = false,
+    ["useable"] = true,
+    ["shouldClose"] = true,
+    ["combinable"] = nil,
+    ["description"] = "A simple numeric keypad device."
+},
+
+["advanced_keypad"] = {
+    ["name"] = "advanced_keypad",
+    ["label"] = "Advanced Keypad",
+    ["weight"] = 350,
+    ["type"] = "item",
+    ["image"] = "advanced_keypad.png",
+    ["unique"] = false,
+    ["useable"] = true,
+    ["shouldClose"] = true,
+    ["combinable"] = nil,
+    ["description"] = "An advanced keypad with extra security features."
+},
+
+["police_keypad"] = {
+    ["name"] = "police_keypad",
+    ["label"] = "Police Keypad",
+    ["weight"] = 500,
+    ["type"] = "item",
+    ["image"] = "police_keypad.png",
+    ["unique"] = true,
+    ["useable"] = true,
+    ["shouldClose"] = true,
+    ["combinable"] = nil,
+    ["description"] = "A secured keypad used by law enforcement."
+},
+
+["explosive_trap"] = {
+    ["name"] = "explosive_trap",
+    ["label"] = "Explosive Trap",
+    ["weight"] = 1500,
+    ["type"] = "item",
+    ["image"] = "explosive_trap.png",
+    ["unique"] = false,
+    ["useable"] = false,
+    ["shouldClose"] = false,
+    ["combinable"] = nil,
+    ["description"] = "Be carefull with this one..."
+},
