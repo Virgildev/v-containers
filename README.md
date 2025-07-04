@@ -14,7 +14,7 @@ Supports: **QB-Core**, **QBOX**, **ESX**
 
 ## 🎥 Preview 🎥
 
- - Preview can be found: [here]()
+ - Preview can be found: [here](https://streamable.com/pb5nw7)
 
 ---
 
@@ -267,4 +267,4 @@ Config.Notifications = {
 
 ## 🛠️ Support 🛠️
 
-Feel free to join the new discord for support I created a whole 7 minutes ago [here]()
+Feel free to join the new discord for support I created a whole 7 minutes ago [here](https://discord.gg/37WxZxQq8J)
