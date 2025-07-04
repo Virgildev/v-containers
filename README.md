@@ -61,8 +61,6 @@ Config.hackItem = 'lockpick' -- Item required to destroy a container
 
 Config.InstallTrapFailChance = 30 -- Percentage chance for trap installation to fail (0-100)
 
-Config.LifeTimeCheckInterval = 5 -- How often to check container lifetimes (in min) (recommended: 5 - dont go below 1)
-
 Config.Containers = {
     ['small_crate'] = { -- item name
         label = 'Small Storage Crate', -- label

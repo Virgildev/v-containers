@@ -184,15 +184,8 @@ function GetItemCount(xPlayer, item)
         local xItem = xPlayer.getInventoryItem(item)
         return xItem and xItem.count or 0
     elseif Framework == 'qb' then
-        local plyInv = xPlayer.Functions.GetInventory()
-        local count = 0
-        for _, invItem in pairs(plyInv) do
-            if invItem.name == item then
-                count = invItem.amount
-                break
-            end
-        end
-        return count
+        local source = xPlayer.PlayerData.source
+        return exports['qb-inventory']:GetItemCount(source, item)
     elseif Framework == 'qbx' then
         return exports.ox_inventory:GetItemCount(xPlayer.PlayerData.source, item)
     end
@@ -682,38 +675,25 @@ end)
 
 function StartLifetimeCheck()
     CreateThread(function()
-        local checkInterval = (Config.LifeTimeCheckInterval or 5) * 60000
-        
         while true do
-            Wait(checkInterval)
+            Wait(60000)
             local currentTime = os.time()
             local expiredContainers = {}
-            local containersToUpdate = {}
 
             for id, container in pairs(containers) do
                 if container.expiresAt and currentTime >= container.expiresAt then
-                    expiredContainers[#expiredContainers + 1] = id
+                    table.insert(expiredContainers, id)
                 elseif container.temporaryLock and currentTime >= container.temporaryLock then
-                    containersToUpdate[#containersToUpdate + 1] = id
-                end
-            end
-
-            for i = 1, #containersToUpdate do
-                local id = containersToUpdate[i]
-                if containers[id] then
                     containers[id].temporaryLock = nil
                     containers[id].failedAttempts = 0
                 end
             end
 
-            if #expiredContainers > 0 then
-                for i = 1, #expiredContainers do
-                    local id = expiredContainers[i]
-                    if containers[id] then
-                        print(("[v-containers] Container %s has expired and is being removed."):format(id))
-                        DeleteContainer(id)
-                        TriggerClientEvent('v-containers:client:removeContainer', -1, id)
-                    end
+            for _, id in ipairs(expiredContainers) do
+                if containers[id] then
+                    print(("[v-containers] Container %s has expired and is being removed."):format(id))
+                    DeleteContainer(id)
+                    TriggerClientEvent('v-containers:client:removeContainer', -1, id)
                 end
             end
         end

@@ -5,12 +5,12 @@ description 'small container thing idk'
 version '0.1.0'
 
 shared_script {
-    '@ox_lib/init.lua',
+    --'@ox_lib/init.lua',
     'config.lua'
 }
 
 client_script {
-    '@qbx_core/modules/playerdata.lua',
+    --'@qbx_core/modules/playerdata.lua',
     'client/*.lua'
 }
 

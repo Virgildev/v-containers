@@ -297,7 +297,7 @@ function StartPlacingContainer(containerType, containerData)
             end
 
             local rayOriginZ = placeCoords.z + 5.0
-            local rayEndZ = placeCoords.z - 5.0
+            local rayEndZ = placeCoords.z - 2.0
             local foundGround, groundZ = GetGroundZFor_3dCoord(placeCoords.x, placeCoords.y, rayOriginZ, false)
 
             if foundGround then
@@ -373,7 +373,19 @@ end)
 RegisterNetEvent('v-containers:client:syncContainers', function(containerData)
     for containerId, container in pairs(containers) do
         if container.object and DoesEntityExist(container.object) then
-            exports.ox_target:removeLocalEntity(container.object)
+            if Framework == 'qb' then
+                exports['qb-target']:RemoveTargetEntity(container.object, 'Open Container')
+                exports['qb-target']:RemoveTargetEntity(container.object, 'Enter PIN')
+                exports['qb-target']:RemoveTargetEntity(container.object, 'Hack Container')
+                exports['qb-target']:RemoveTargetEntity(container.object, 'Pick Up Container')
+                exports['qb-target']:RemoveTargetEntity(container.object, 'Destroy Container')
+                exports['qb-target']:RemoveTargetEntity(container.object, 'Add Keypad')
+                exports['qb-target']:RemoveTargetEntity(container.object, 'Add Trap')
+                exports['qb-target']:RemoveTargetEntity(container.object, 'Repair Container')
+                exports['qb-target']:RemoveTargetEntity(container.object, 'Check Lifetime')
+            else
+                exports.ox_target:removeLocalEntity(container.object)
+            end
             DeleteObject(container.object)
         end
     end
@@ -391,7 +403,19 @@ end)
 RegisterNetEvent('v-containers:client:removeContainer', function(containerId)
     if containers[containerId] then
         if containers[containerId].object and DoesEntityExist(containers[containerId].object) then
-            exports.ox_target:removeLocalEntity(containers[containerId].object)
+            if Framework == 'qb' then
+                exports['qb-target']:RemoveTargetEntity(containers[containerId].object, 'Open Container')
+                exports['qb-target']:RemoveTargetEntity(containers[containerId].object, 'Enter PIN')
+                exports['qb-target']:RemoveTargetEntity(containers[containerId].object, 'Hack Container')
+                exports['qb-target']:RemoveTargetEntity(containers[containerId].object, 'Pick Up Container')
+                exports['qb-target']:RemoveTargetEntity(containers[containerId].object, 'Destroy Container')
+                exports['qb-target']:RemoveTargetEntity(containers[containerId].object, 'Add Keypad')
+                exports['qb-target']:RemoveTargetEntity(containers[containerId].object, 'Add Trap')
+                exports['qb-target']:RemoveTargetEntity(containers[containerId].object, 'Repair Container')
+                exports['qb-target']:RemoveTargetEntity(containers[containerId].object, 'Check Lifetime')
+            else
+                exports.ox_target:removeLocalEntity(containers[containerId].object)
+            end
             DeleteObject(containers[containerId].object)
         end
 
@@ -403,7 +427,19 @@ function SpawnContainer(containerData)
     if containers[containerData.id] and containers[containerData.id].object then
         local existingObj = containers[containerData.id].object
         if DoesEntityExist(existingObj) then
-            exports.ox_target:removeLocalEntity(existingObj)
+            if Framework == 'qb' then
+                exports['qb-target']:RemoveTargetEntity(existingObj, 'Open Container')
+                exports['qb-target']:RemoveTargetEntity(existingObj, 'Enter PIN')
+                exports['qb-target']:RemoveTargetEntity(existingObj, 'Hack Container')
+                exports['qb-target']:RemoveTargetEntity(existingObj, 'Pick Up Container')
+                exports['qb-target']:RemoveTargetEntity(existingObj, 'Destroy Container')
+                exports['qb-target']:RemoveTargetEntity(existingObj, 'Add Keypad')
+                exports['qb-target']:RemoveTargetEntity(existingObj, 'Add Trap')
+                exports['qb-target']:RemoveTargetEntity(existingObj, 'Repair Container')
+                exports['qb-target']:RemoveTargetEntity(existingObj, 'Check Lifetime')
+            else
+                exports.ox_target:removeLocalEntity(existingObj)
+            end
             DeleteObject(existingObj)
         end
     end
@@ -508,7 +544,27 @@ function SpawnContainer(containerData)
         end
     })
 
-    exports.ox_target:addLocalEntity(obj, options)
+    if Framework == 'qb' then
+        local qb_target_options = {}
+        for _, opt in pairs(options) do
+            table.insert(qb_target_options, {
+                event = "v-containers:client:targetInteraction",
+                icon = opt.icon,
+                label = opt.label,
+                id = containerData.id,
+                action_type = opt.name,
+                action = function()
+                    opt.onSelect()
+                end
+            })
+        end
+        exports['qb-target']:AddTargetEntity(obj, {
+            options = qb_target_options,
+            distance = 2.0
+        })
+    else
+        exports.ox_target:addLocalEntity(obj, options)
+    end
 end
 
 function HandleContainerInteraction(containerId, action)
@@ -593,7 +649,7 @@ function HandleContainerInteraction(containerId, action)
                         hasRequiredItem = true
                         break
                     end
-                    end
+                end
             end
         else
             hasRequiredItem = true
@@ -967,7 +1023,19 @@ AddEventHandler('onResourceStop', function(resourceName)
     if resourceName == GetCurrentResourceName() then
         for _, container in pairs(containers) do
             if container.object and DoesEntityExist(container.object) then
-                exports.ox_target:removeLocalEntity(container.object)
+                if Framework == 'qb' then
+                    exports['qb-target']:RemoveTargetEntity(container.object, 'Open Container')
+                    exports['qb-target']:RemoveTargetEntity(container.object, 'Enter PIN')
+                    exports['qb-target']:RemoveTargetEntity(container.object, 'Hack Container')
+                    exports['qb-target']:RemoveTargetEntity(container.object, 'Pick Up Container')
+                    exports['qb-target']:RemoveTargetEntity(container.object, 'Destroy Container')
+                    exports['qb-target']:RemoveTargetEntity(container.object, 'Add Keypad')
+                    exports['qb-target']:RemoveTargetEntity(container.object, 'Add Trap')
+                    exports['qb-target']:RemoveTargetEntity(container.object, 'Repair Container')
+                    exports['qb-target']:RemoveTargetEntity(container.object, 'Check Lifetime')
+                else
+                    exports.ox_target:removeLocalEntity(container.object)
+                end
                 DeleteObject(container.object)
             end
         end
@@ -976,4 +1044,5 @@ AddEventHandler('onResourceStop', function(resourceName)
             DeleteObject(previewObject)
         end
     end
-end)
+end
+)

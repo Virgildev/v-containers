@@ -1,0 +1,1 @@
+besure to uncomment --'@ox_lib/init.lua', & --'@qbx_core/modules/playerdata.lua', in the fxmanifest.lua
