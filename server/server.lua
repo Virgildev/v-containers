@@ -180,7 +180,9 @@ function AddItem(xPlayer, item, amount)
 end
 
 function GetItemCount(xPlayer, item)
-    if Framework == 'esx' then
+    if Inventory == 'ox' then
+        return exports.ox_inventory:GetItemCount(xPlayer.PlayerData.source, item)
+    elseif Framework == 'esx' then
         local xItem = xPlayer.getInventoryItem(item)
         return xItem and xItem.count or 0
     elseif Framework == 'qb' then
