@@ -734,7 +734,6 @@ RegisterNetEvent('v-containers:server:playerLoaded', function()
             containers[id].hasAccess = false
         end
         TriggerClientEvent('v-containers:client:syncContainers', source, containers)
-        print(("[v-containers] Synced %d containers for player %s."):format(table.maxn(containers), source))
     end)
 end)
 
