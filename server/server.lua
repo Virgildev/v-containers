@@ -24,6 +24,8 @@ CreateThread(function()
             Config.Inventory = 'ox'
         elseif GetResourceState('qb-inventory') == 'started' then
             Config.Inventory = 'qb'
+        elseif GetResourceState('codem-inventory') == 'started' then
+            Config.Inventory = 'codem'
         else
             print("[v-containers] WARNING: No supported inventory found, defaulting to ox")
             Config.Inventory = 'ox'
@@ -166,6 +168,9 @@ function RemoveItem(xPlayer, item, amount)
         xPlayer.Functions.RemoveItem(item, amount)
     elseif Framework == 'qbx' then
         exports.ox_inventory:RemoveItem(xPlayer.PlayerData.source, item, amount)
+    elseif Inventory == 'codem' then
+        local source = xPlayer.PlayerData and xPlayer.PlayerData.source or xPlayer.source
+        exports['codem-inventory']:RemoveItem(source, item, amount)
     end
 end
 
@@ -176,6 +181,9 @@ function AddItem(xPlayer, item, amount)
         xPlayer.Functions.AddItem(item, amount)
     elseif Framework == 'qbx' then
         exports.ox_inventory:AddItem(xPlayer.PlayerData.source, item, amount)
+    elseif Inventory == 'codem' then
+        local source = xPlayer.PlayerData and xPlayer.PlayerData.source or xPlayer.source
+        exports['codem-inventory']:AddItem(source, item, amount)
     end
 end
 
@@ -190,6 +198,9 @@ function GetItemCount(xPlayer, item)
         return exports['qb-inventory']:GetItemCount(source, item)
     elseif Framework == 'qbx' then
         return exports.ox_inventory:GetItemCount(xPlayer.PlayerData.source, item)
+    elseif Inventory == 'codem' then
+        local source = xPlayer.PlayerData and xPlayer.PlayerData.source or xPlayer.source
+        return exports['codem-inventory']:GetItemsTotalAmount(source, item)
     end
 end
 
@@ -258,6 +269,8 @@ function LoadContainers()
                     maxweight = containerConfig.weight,
                     slots = containerConfig.slots
                 })
+            elseif Inventory == 'codem' then
+                -- no need to register??
             end
             ::continue::
         end
@@ -325,6 +338,8 @@ function DeleteContainer(containerId)
         exports['qb-inventory']:RemoveInventory(containerId)
     elseif Inventory == 'ox' then
 
+    elseif Inventory == 'codem' then
+        
     end
     containers[containerId] = nil
 end
@@ -392,6 +407,8 @@ RegisterServerEvent('v-containers:server:placeContainer', function(containerType
         exports.ox_inventory:RegisterStash(containerId, containerConfig.label, containerConfig.slots, containerConfig.weight)
     elseif Inventory == 'qb' then
         exports['qb-inventory']:CreateInventory(containerId, {label = containerConfig.label, maxweight = containerConfig.weight, slots = containerConfig.slots})
+    elseif Inventory == 'codem' then
+       
     end
 
     SaveContainer(containerData)
@@ -566,6 +583,9 @@ RegisterServerEvent('v-containers:server:checkPin', function(containerId, pin)
             exports.ox_inventory:forceOpenInventory(source, 'stash', containerId)
         elseif Inventory == 'qb' then
             exports['qb-inventory']:OpenInventory(source, containerId, "stash_"..containerId)
+        elseif Inventory == 'codem' then
+            local container = containers[containerId]
+            TriggerEvent('codem-inventory:server:openstash', source, containerId, container.slots, container.weight, containerConfig.label)
         end
         ShowNotification(source, Config.Notifications.access_granted)
     else
@@ -642,6 +662,9 @@ RegisterServerEvent('v-containers:server:hackSuccess', function(containerId)
         exports.ox_inventory:forceOpenInventory(source, 'stash', containerId)
     elseif Inventory == 'qb' then
         exports['qb-inventory']:OpenInventory(source, containerId, "stash_"..containerId)
+    elseif Inventory == 'codem' then
+        local container = containers[containerId]
+        TriggerEvent('codem-inventory:server:openstash', source, containerId, container.slots, container.weight, containerConfig.label)
     end
     ShowNotification(source, Config.Notifications.hack_successful)
 
@@ -745,6 +768,9 @@ RegisterServerEvent('v-containers:server:openContainer', function(containerId)
         exports.ox_inventory:forceOpenInventory(source, 'stash', containerId)
     elseif Inventory == 'qb' then
         exports['qb-inventory']:OpenInventory(source, containerId, "stash_"..containerId)
+    elseif Inventory == 'codem' then
+        local containerConfig = Config.Containers[container.type]
+        TriggerEvent('codem-inventory:server:openstash', source, containerId, container.slots, container.weight, containerConfig.label)
     end
 end)
 

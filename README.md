@@ -8,7 +8,7 @@
 
 **v-containers** is a container system where players can place down real prop based containers, and place items inside, add locks, add traps, and do many more interactive things within the features of the script.
 
-Supports: **QB-Core**, **QBOX**, **ESX**
+Supports: **QB-Core**, **QBOX**, **ESX**, **Codem-Inventory**
 
 ---
 
@@ -39,7 +39,7 @@ Config = {}
 
 Config.Framework = 'auto' -- qb, qbox or esx (recommended: auto)
 
-Config.Inventory = 'auto' -- qb, ox or esx (recommended: auto)
+Config.Inventory = 'auto' -- qb, ox, esx or codem (recommended: auto)
 
 Config.onlyOwnerCanPickup = true -- If true, only the owner of the container can pick it up (recommended: true)
 Config.onlyOwnerCanDestroy = false -- If true, only the owner of the container can destroy (recommended: false)
@@ -258,10 +258,31 @@ Config.Notifications = {
 
 ## ⚙️ Install ⚙️
 
- 1. Download Latest Release
- 2. Drop into your resources
- 3. Ensure 'v-containers'
- 4. use it
+### Basic Installation
+1. Download Latest Release
+2. Drop into your resources folder
+3. Ensure 'v-containers' in your server.cfg
+4. Configure your inventory system (see below)
+
+### Inventory System Setup
+
+#### For QB-Inventory
+1. Copy items from `install/items/qb/items.txt` to your QB-Inventory items
+2. Copy images from `install/item imgs/` to your QB-Inventory images folder
+
+#### For OX-Inventory
+1. Copy items from `install/items/qbx - ox/items.txt` to your OX-Inventory items
+2. Copy images from `install/item imgs/` to your OX-Inventory images folder
+
+#### For ESX
+1. Import the SQL from `install/items/esx/esx.sql` to your database
+2. Copy images from `install/item imgs/` to your ESX inventory images folder
+
+#### For Codem-Inventory
+1. Enable QB-Core usable items in `codem-inventory/config/config.lua` by setting `Config.UseQBUsableItems = true`
+2. Copy items from `install/items/codem/items.txt` to your `codem-inventory/config/itemlist.lua` file
+3. Copy images from `install/item imgs/` to your Codem-Inventory images folder
+4. Set `Config.Inventory = 'codem'` in config.lua or use `'auto'` for auto-detection
 
 ## 🛠️ Support 🛠️
 

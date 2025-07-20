@@ -22,6 +22,8 @@ CreateThread(function()
             Config.Inventory = 'ox'
         elseif GetResourceState('qb-inventory') == 'started' then
             Config.Inventory = 'qb'
+        elseif GetResourceState('codem-inventory') == 'started' then
+            Config.Inventory = 'codem'
         elseif GetResourceState('esx_inventoryhud') == 'started' then
             Config.Inventory = 'esx'
         end
@@ -52,6 +54,7 @@ function GetProgressFunction()
                 data.onCancel or function() end
             )
         end
+
     elseif Framework == 'esx' then
         return function(data, onFinishCb)
             exports["esx_progressbar"]:Progressbar(
@@ -195,6 +198,7 @@ function ShowTextUI(text)
         lib.showTextUI(text)
     elseif Framework == 'qb' then
         exports['qb-core']:DrawText(text)
+
     elseif Framework == 'esx' then
         exports['esx_textui']:TextUI(text, 'info')
     end
@@ -205,6 +209,7 @@ function HideTextUI()
         lib.hideTextUI()
     elseif Framework == 'qb' then
         exports['qb-core']:HideText()
+
     elseif Framework == 'esx' then
         exports['esx_textui']:HideUI()
     end
@@ -827,6 +832,7 @@ function OpenPinPad(containerId)
                 }
             }
         })
+
     elseif Framework == 'esx' then
         ESX.UI.ShowInput({
             title = "Enter PIN",
@@ -915,6 +921,7 @@ function AddKeypadToContainer(containerId)
                 }
             }
         })
+
     elseif Framework == 'esx' then
         ESX.UI.ShowInput({
             title = "Set PIN",
