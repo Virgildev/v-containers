@@ -1,7 +1,6 @@
 INSERT INTO `items` (`name`, `label`, `weight`, `rare`, `can_remove`) VALUES
 ('small_crate', 'Small Storage Crate', 2000, 0, 1),
 ('medium_crate', 'Medium Storage Crate', 3000, 0, 1),
-('large_crate', 'Large Storage Crate', 5000, 0, 1),
 ('weapon_crate', 'Weapon Storage Crate', 4000, 0, 1),
 ('medical_crate', 'Medical Supply Crate', 2500, 0, 1),
 ('secure_safe', 'Secure Safe', 10000, 0, 1),

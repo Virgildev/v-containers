@@ -24,19 +24,6 @@
     ["description"] = "A medium-sized storage crate for carrying supplies."
 },
 
-["large_crate"] = {
-    ["name"] = "large_crate",
-    ["label"] = "Large Storage Crate",
-    ["weight"] = 5000,
-    ["type"] = "item",
-    ["image"] = "large_crate.png",
-    ["unique"] = true,
-    ["useable"] = true,
-    ["shouldClose"] = true,
-    ["combinable"] = nil,
-    ["description"] = "A large crate designed for transporting bulk items."
-},
-
 ["weapon_crate"] = {
     ["name"] = "weapon_crate",
     ["label"] = "Weapon Storage Crate",

@@ -18,16 +18,6 @@
         event = 'v-containers:client:useContainer',
     }
 },
-['large_crate'] = {
-    label = 'Large Storage Crate',
-    weight = 5000,
-    stack = false,
-    close = false,
-    consume = 0,
-    client = {
-        event = 'v-containers:client:useContainer',
-    }
-},
 ['weapon_crate'] = {
     label = 'Weapon Storage Crate',
     weight = 4000,
